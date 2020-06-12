@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "432523672177",
+    "firebase_url": "https://comall.firebaseio.com",
+    "project_id": "comall",
+    "storage_bucket": "comall.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:432523672177:android:582b877a5962624474f9d0",
+        "android_client_info": {
+          "package_name": "com.jbnu.comall"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "432523672177-cnqt04tuqkfaapc6aa6euliktfohhem5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jbnu.comall",
+            "certificate_hash": "f28365b3377137a2131a94b72691f4772157e07c"
+          }
+        },
+        {
+          "client_id": "432523672177-5ih0bm062ovsinbvnbqu7dnni3003d6t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8G9_BzbyTy4VAZYVtZTErW9DHIN9etGE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "432523672177-5ih0bm062ovsinbvnbqu7dnni3003d6t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
