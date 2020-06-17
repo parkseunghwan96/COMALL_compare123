@@ -6,10 +6,11 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.jbnu.comall.model.Compare;
+import com.jbnu.comall.model.Examine;
 import com.jbnu.comall.model.Product;
 import com.jbnu.comall.model.Rating;
 import com.jbnu.comall.model.Review;
-import com.jbnu.comall.model.Examine;
 import com.jbnu.comall.model.TrendList;
 import com.jbnu.comall.model.TrendView;
 
@@ -170,6 +171,32 @@ public class DBHelper {
                         }
 
                         consumer.accept(ratingList);
+                    }
+
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
+    }
+    public void getCompare(String category, Consumer<List<Compare>> consumer) {
+        FirebaseDatabase.getInstance()
+                .getReference("compare")
+                .child(category)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        List<HashMap<String, Object>> maptList = (List<HashMap<String, Object>>) dataSnapshot.getValue();
+                        List<Compare> compareList = new ArrayList<>();
+
+                        for (HashMap<String, Object> map : maptList) {
+                            Compare compare = new Compare();
+                            compare.setSpec1((String) map.get("sepc1"));
+                            compare.setSpec2((String) map.get("sepc2"));
+                            compare.setSpec3((String) map.get("sepc3"));
+
+                            compareList.add(compare);
+                        }
+
+                        consumer.accept(compareList);
                     }
 
                     public void onCancelled(DatabaseError databaseError) {

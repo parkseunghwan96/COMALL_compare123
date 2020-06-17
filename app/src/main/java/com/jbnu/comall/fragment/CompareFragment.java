@@ -26,6 +26,8 @@ import java.util.List;
 
 public class CompareFragment extends BaseFragment {
 
+
+
     private List<String> categories = Arrays.asList("CPU", "VGA");
 
     @Nullable
@@ -69,10 +71,10 @@ public class CompareFragment extends BaseFragment {
         TextList1Adapter adapter1 = new TextList1Adapter(categories, (v, pos) -> {
             String itemName = categories.get(pos);
             String category = Categories1.toEnum(itemName).toString();
-            DBHelper.getInstance().getProduct(category, productList -> {
-                ProductListFragment listFragment = new ProductListFragment(productList);
+            DBHelper.getInstance().getCompare(category, compareList  -> {
+                CompareListFragment comparelistFragment = new CompareListFragment(compareList);
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                replaceWithStack(transaction, R.id.fragment_container, listFragment);
+                replaceWithStack(transaction, R.id.fragment_container, comparelistFragment);
             });
         });
 
