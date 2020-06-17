@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="test">
+        <item>MSI</item>
+        <item>INTEL</item>
+        <item>GALAXY</item>
+    </string-array>
+
+</resources>

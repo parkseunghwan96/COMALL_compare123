@@ -11,7 +11,7 @@ import com.jbnu.comall.fragment.ExamineFragment;
 import com.jbnu.comall.fragment.TrendFragment;
 import com.jbnu.comall.fragment.CategoryFragment;
 import com.jbnu.comall.fragment.RatingFragment;
-import com.jbnu.comall.fragment.SearchFragment;
+import com.jbnu.comall.fragment.CompareFragment;
 import com.roughike.bottombar.BottomBar;
 
 public class MainActivity extends BaseActivity {
@@ -29,10 +29,10 @@ public class MainActivity extends BaseActivity {
             if (id == R.id.tab_category)
                 replace(transaction, R.id.fragment_container, new CategoryFragment());
 
-            else if (id == R.id.tab_search)
-                replace(transaction, R.id.fragment_container, new SearchFragment());
+            else if (id == R.id.tab_compare)
+                replace(transaction, R.id.fragment_container, new CompareFragment());
 
-            else if (id == R.id.tab_my_page)
+            else if (id == R.id.tab_rating)
                 replace(transaction, R.id.fragment_container, new RatingFragment());
 
             else if (id == R.id.tab_examine)
@@ -41,5 +41,7 @@ public class MainActivity extends BaseActivity {
             else if (id == R.id.tab_cart)
                 replace(transaction, R.id.fragment_container, new TrendFragment());
         });
+
     }
+
 }

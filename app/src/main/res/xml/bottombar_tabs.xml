@@ -5,23 +5,38 @@
         <tab
             barColorWhenSelected="@color/background"
             icon="@drawable/list"
-            id="@+id/tab_category"/>
+            id="@+id/tab_category"
+            activeColor="#ffffffff"
+            inActiveColor="#ff696969"
+            title="제품목록"/>
         <tab
             barColorWhenSelected="@color/background"
-            icon="@drawable/search"
-            id="@+id/tab_search"/>
+            icon="@drawable/compare"
+            id="@+id/tab_compare"
+            activeColor="#ffffffff"
+            inActiveColor="#ff696969"
+            title="제품비교"/>
         <tab
             barColorWhenSelected="@color/background"
-            icon="@drawable/person"
-            id="@+id/tab_my_page"/>
+            icon="@drawable/star"
+            id="@+id/tab_rating"
+            activeColor="#ffffffff"
+            inActiveColor="#ff696969"
+            title="평가"/>
 
         <tab
             barColorWhenSelected="@color/background"
-            icon="@drawable/ic_trending_up_black_24dp"
-            id="@+id/tab_cart"/>
+            icon="@drawable/trend"
+            id="@+id/tab_cart"
+            activeColor="#ffffffff"
+            inActiveColor="#ff696969"
+            title="가격동향"/>
         <tab
             barColorWhenSelected="@color/background"
-            icon="@drawable/ic_insert_drive_file_black_24dp"
-            id="@+id/tab_examine"/>
+            icon="@drawable/examine"
+            id="@+id/tab_examine"
+            activeColor="#ffffffff"
+            inActiveColor="#ff696969"
+            title="용어설명"/>
     </tabs>
 </PreferenceScreen>

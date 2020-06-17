@@ -12,7 +12,12 @@
         android:textColor="#222222"
         android:layout_margin="15dp"
         android:textSize="38sp"/>
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="※본 내용은 지극히 주관적이며 참고만 하시길 바랍니다."
+        android:textSize="16sp" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:text="분류               내용"
+            android:text="   분류               내용"
             android:textColor="#222222"
             android:textSize="20sp" />
     </LinearLayout>
