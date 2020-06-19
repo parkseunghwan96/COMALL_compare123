@@ -6,7 +6,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.jbnu.comall.model.Compare;
+import com.jbnu.comall.model.ComparePart;
+import com.jbnu.comall.model.CompareRanking;
 import com.jbnu.comall.model.Examine;
 import com.jbnu.comall.model.Product;
 import com.jbnu.comall.model.Rating;
@@ -177,7 +178,7 @@ public class DBHelper {
                     }
                 });
     }
-    public void getCompare(String category, Consumer<List<Compare>> consumer) {
+    public void getCompare(String category, Consumer<List<ComparePart>> consumer) {
         FirebaseDatabase.getInstance()
                 .getReference("compare")
                 .child(category)
@@ -185,15 +186,24 @@ public class DBHelper {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         List<HashMap<String, Object>> maptList = (List<HashMap<String, Object>>) dataSnapshot.getValue();
-                        List<Compare> compareList = new ArrayList<>();
+                        List<ComparePart> compareList = new ArrayList<>();
 
                         for (HashMap<String, Object> map : maptList) {
-                            Compare compare = new Compare();
-                            compare.setSpec1((String) map.get("sepc1"));
-                            compare.setSpec2((String) map.get("sepc2"));
-                            compare.setSpec3((String) map.get("sepc3"));
+                            ComparePart comparePart = new ComparePart();
+                            comparePart.setComparetext((String) map.get("comparename"));
+                            List<CompareRanking> compareRankings = new ArrayList<>();
 
-                            compareList.add(compare);
+
+                            for (HashMap<String, Object> compare_ranking : (List<HashMap<String, Object>>) map.get("compareRanking")) {
+                                CompareRanking compareObject = new CompareRanking();
+                                compareObject.setPartname((String) compare_ranking.get("partname"));
+                                compareObject.setPartscore((String) compare_ranking.get("score"));
+                                compareRankings.add(compareObject);
+                            }
+
+                            comparePart.setCompareRankings(compareRankings);
+
+                            compareList.add(comparePart);
                         }
 
                         consumer.accept(compareList);

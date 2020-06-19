@@ -8,25 +8,23 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.jbnu.comall.R;
-import com.jbnu.comall.model.Compare;
+import com.jbnu.comall.model.CompareRanking;
 
 import java.util.List;
 
-public class CompareListAdapter extends RecyclerView.Adapter<CompareListAdapter.ViewHolder> {
+public class CompareRankingAdapter extends RecyclerView.Adapter<CompareRankingAdapter.ViewHolder> {
 
     private OnItemClickListener listener1;
-    private List<Compare> Data;
+    private List<CompareRanking> Data;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView spec1;
-        TextView spec2;
-        TextView spec3;
+        TextView partname;
+        TextView partscore;
 
         ViewHolder(View itemView) {
             super(itemView);
-            spec1 = itemView.findViewById(R.id.spec1);
-            spec2 = itemView.findViewById(R.id.spec2);
-            spec3 = itemView.findViewById(R.id.spec3);
+            partname = itemView.findViewById(R.id.part_name);
+            partscore = itemView.findViewById(R.id.part_score);
 
             itemView.setOnClickListener(v -> {
                 int pos = getAdapterPosition();
@@ -41,24 +39,23 @@ public class CompareListAdapter extends RecyclerView.Adapter<CompareListAdapter.
         }
     }
 
-    public CompareListAdapter(List<Compare> list1, OnItemClickListener listener1) {
+    public CompareRankingAdapter(List<CompareRanking> list1, OnItemClickListener listener1) {
         this.listener1 = listener1;
         this.Data = list1;
     }
 
     @Override
-    public CompareListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_compare, parent, false);
-        return new CompareListAdapter.ViewHolder(view);
+    public CompareRankingAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_ranking_list, parent, false);
+        return new CompareRankingAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(CompareListAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(CompareRankingAdapter.ViewHolder holder, int position) {
         System.out.println(Data.get(position));
-        Compare compare = Data.get(position);
-        holder.spec1.setText(compare.getSpec1());
-        holder.spec2.setText(compare.getSpec2());
-        holder.spec3.setText(compare.getSpec3());
+        CompareRanking compareRanking = Data.get(position);
+        holder.partname.setText(compareRanking.getPartname());
+        holder.partscore.setText(compareRanking.getPartscore());
 
 
 
